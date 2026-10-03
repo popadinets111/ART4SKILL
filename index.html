@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ART4SKILL - Фитнес и Тренировки</title>
+  <title>ARTSKILL - Фитнес и Тренировки</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  
+
   <style>
     :root {
       --primary: #ff3e00;
@@ -93,7 +93,7 @@
       left: 0;
       border-radius: 5px;
       overflow: hidden;
-      margin-top: 0; /* Отступ убран, чтобы меню не пропадало */
+      margin-top: 0;
     }
 
     .dropdown-content a {
@@ -115,7 +115,6 @@
       display: block;
     }
 
-    /* Стили мобильного меню (бургер) */
     .menu-toggle {
       display: none;
       color: var(--white);
@@ -144,7 +143,8 @@
         display: flex;
       }
 
-      .nav-links a, .dropdown {
+      .nav-links a,
+      .dropdown {
         margin: 15px 0;
         margin-left: 0;
       }
@@ -160,18 +160,41 @@
       }
     }
 
+    /* Первый экран с видео */
     .hero {
+      position: relative;
       height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1500') no-repeat center center/cover;
+      min-height: 500px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: var(--white);
       padding: 0 20px;
+      background: #111;
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
     }
 
     .hero-content {
+      position: relative;
+      z-index: 2;
       max-width: 800px;
     }
 
@@ -214,6 +237,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .section2 {
       padding: 30px 20px;
       max-width: 1200px;
@@ -227,10 +251,10 @@
       margin-bottom: 60px;
       position: relative;
     }
+
     .section-title2 {
       text-align: center;
       font-size: 40px;
-    
       margin-bottom: 60px;
       position: relative;
     }
@@ -281,105 +305,163 @@
       padding: 20px;
       font-size: 14px;
     }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title,
+      .section-title2 {
+        font-size: 30px;
+      }
+
+      .btn {
+        padding: 13px 20px;
+        font-size: 12px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <header>
     <nav>
-      <div class="logo">ART4SKILL</div>
-      
+      <div class="logo">ARTSKILL</div>
+
       <!-- Кнопка гамбургер для мобильных -->
       <div class="menu-toggle" id="mobile-menu">☰</div>
-      
+
       <div class="nav-links" id="nav-links">
         <a href="#programs">Направления</a>
         <a href="#team">Команда</a>
+
         <div class="dropdown">
           Контакты
           <div class="dropdown-content">
-            <a href="https://t.me/artemlovchykov" target="_blank">Telegram</a>
-            <!-- Не забудьте вставить ссылку для MAX ниже -->
-            <a href="https://max.ru/u/f9LHodD0cOKZEBeSoeCOL9TDoubQ1gE9Aijbhs2tVq8fpxnwkWF4FxJ-0vM" target="_blank">Max</a>
+            <a href="https://t.me/artemlovchykov" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://max.ru/u/f9LHodD0cOKZEBeSoeCOL9TDoubQ1gE9Aijbhs2tVq8fpxnwkWF4FxJ-0vM" target="_blank" rel="noopener noreferrer">Max</a>
           </div>
         </div>
       </div>
     </nav>
   </header>
 
-<section class="hero">
+  <!-- Первый экран с видеофоном -->
+  <section class="hero">
+
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="7.mp4" type="video/mp4">
+      Ваш браузер не поддерживает воспроизведение видео.
+    </video>
+
     <div class="hero-content">
- <h1>Выйди на новый уровень</h1>
- <p>Профессиональные фитнес-программы для трансформации твоего тела и духа, снятия стресса и возвращения жизненного ресурса.</p>
-<!-- Блок с двумя кнопками -->
+      <h1>Выйди на новый уровень</h1>
+
+      <p>
+        Профессиональные фитнес-программы для трансформации твоего тела и духа.
+        Снятия стресса и возвращения жизненного ресурса.
+      </p>
+
       <div class="btn-group" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+
         <a href="https://t.me/artemlovchykov" class="btn" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m22 2-11 11"></path>
-            <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+            <path d="M22 2 15 22l-4-9-4-4 20-7z"></path>
           </svg>
           Записаться в Telegram
         </a>
-        
-        <!-- Не забудьте вставить ссылку для MAX ниже -->
+
         <a href="https://max.ru/u/f9LHodD0cOKZEBeSoeCOL9TDoubQ1gE9Aijbhs2tVq8fpxnwkWF4FxJ-0vM" class="btn" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
           </svg>
           Записаться в Max
         </a>
+
       </div>
     </div>
   </section>
 
-<section id="programs" class="section">
-  <h2 class="section-title">Наши направления</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="1.jpg" alt="Стретчинг" class="trainer-img">
-      <h3>Стретчинг</h3>
-      <p>Комплекс упражнений для повышения гибкости, улучшения подвижности суставов и снятия мышечного напряжения.
-       Тренировки на растяжку подходят почти всем: их можно делать дома, 
-       в зале или даже в офисе, а продолжительность варьируется от 10 минут до часа.</p>
-    </div>
-    <div class="card">
-      <img src="3.jpg" alt="Силовые тренировки " class="trainer-img">
-      <h3>Силовые тренировки </h3>
-      <p>Занятия, где мышцы работают против сопротивления: собственного веса, гантелей, резинок,
-       тренажёров или других отягощений. Их главная задача — сделать мышцы сильнее, выносливее и объёмнее,
-       а тело — крепче и устойчивее. На наших онлайн‑занятиях вы будете выполнять продуманные комплексы 
-       упражнений с понятной техникой: тренер покажет каждое движение, поправит ошибки в реальном времени и 
-       подберёт нагрузку так, чтобы прогресс был стабильным и безопасным.
-</p>
-    </div>
-    <div class="card">
-      <img src="4.jpg" alt="Функциональные тренировки" class="trainer-img">
-      <h3>Функциональные тренировки</h3>
-      <p>Занятия, которые развивают силу, выносливость, координацию и гибкость через движения, близкие к повседневным: 
-       приседания, наклоны, тяги, прыжки, переносы веса. 
-       Их главная цель — сделать тело устойчивым и эффективным в реальной жизни, а не просто накачать отдельные мышцы.</p>
-    </div>
-  </div>
-</section>
+  <!-- Направления тренировок -->
+  <section id="programs" class="section">
+    <h2 class="section-title">Наши направления</h2>
 
-<section id="team" class="section2">
- <h2 class="section-title">Тренер:</h2>
-   <h3 class="section-title2">Артём Ловчиков</h3>
- <div class="grid">
- <div class="card">
- <img src="5.jpg" alt="Артём" class="trainer-img">
- <h3>Артём</h3>
- <p>Основатель и главный тренер. Специализация: функциональный тренинг, кардио и стретчинг.</p>
- </div>
- 
- </div>
-</section>
+    <div class="grid">
 
-<footer>
-    <p>&copy; 2026 Art4skill.ru  Все права защищены.</p>
+      <div class="card">
+        <img src="1.jpg" alt="Стретчинг" class="trainer-img">
+        <h3>Стретчинг</h3>
+        <p>
+          Комплекс упражнений для повышения гибкости, улучшения подвижности суставов
+          и снятия мышечного напряжения.
+          Тренировки на растяжку подходят почти всем: их можно делать дома,
+          в зале или даже в офисе, а продолжительность варьируется от 10 минут до часа.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="3.jpg" alt="Силовые тренировки" class="trainer-img">
+        <h3>Силовые тренировки</h3>
+        <p>
+          Занятия, где мышцы работают против сопротивления: собственного веса,
+          гантелей, резинок, тренажёров или других отягощений.
+          Их главная задача — сделать мышцы сильнее, выносливее и объёмнее,
+          а тело — крепче и устойчивее.
+          На наших онлайн-занятиях вы будете выполнять продуманные комплексы
+          упражнений с понятной техникой: тренер покажет каждое движение,
+          поправит ошибки в реальном времени и подберёт нагрузку так,
+          чтобы прогресс был стабильным и безопасным.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="4.jpg" alt="Функциональные тренировки" class="trainer-img">
+        <h3>Функциональные тренировки</h3>
+        <p>
+          Занятия, которые развивают силу, выносливость, координацию и гибкость
+          через движения, близкие к повседневным: приседания, наклоны, тяги,
+          прыжки, переносы веса.
+          Их главная цель — сделать тело устойчивым и эффективным в реальной жизни,
+          а не просто накачать отдельные мышцы.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Команда -->
+  <section id="team" class="section2">
+    <h2 class="section-title">Тренер:</h2>
+    <h3 class="section-title2">Артём Ловчиков</h3>
+
+    <div class="grid">
+      <div class="card">
+        <img src="5.jpg" alt="Артём" class="trainer-img">
+        <h3>Артём</h3>
+        <p>
+          Основатель и главный тренер.
+          Специализация: функциональный тренинг, кардио и стретчинг.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Artskill. Все права защищены.</p>
   </footer>
 
-  <!-- Скрипт для работы мобильного меню -->
+  <!-- Скрипт мобильного меню -->
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
@@ -388,5 +470,6 @@
       navLinks.classList.toggle('active');
     });
   </script>
+
 </body>
 </html>
